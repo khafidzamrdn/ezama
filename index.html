@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tentang Dia, dan Waktu — Erina Azalia Maghfiroh</title>
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- Floating Ambient Audio Player -->
+  <div class="audio-controller" id="audioController" title="Putar Musik Ambient">
+    <button id="audioToggleBtn" aria-label="Toggle Audio">
+      <svg class="icon-music" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+      <span id="audioLabel">Musik</span>
+    </button>
+    <audio id="bgAudio" loop preload="none">
+      <!-- Soft romantic instrumental background audio source -->
+      <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-sunset-473.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- Opening Screen / Cover -->
+  <section id="openingScreen" class="opening-screen">
+    <div class="stars-container" id="starsContainer"></div>
+    <div class="opening-card">
+      <div class="vintage-stamp">Arsip Perasaan</div>
+      <h1 class="opening-title">Tentang Dia, dan Waktu</h1>
+      <h2 class="opening-subtitle">Erina Azalia Maghfiroh</h2>
+      <div class="divider-line"></div>
+      <p class="opening-quote">
+        "Ada beberapa hal yang mungkin tidak pernah benar-benar tersampaikan. Bukan karena tidak ingin diucapkan, melainkan karena terkadang ada perasaan yang lebih nyaman disimpan dalam tulisan."
+      </p>
+      <button id="openStoryBtn" class="btn-opening">
+        <span>Buka Cerita</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Diary Application Container -->
+  <div id="mainApp" class="main-app hidden">
+    
+    <!-- Navigation Bar -->
+    <header class="diary-header">
+      <div class="nav-wrapper">
+        <button id="backToIntro" class="back-intro-btn" title="Kembali ke Halaman Pembuka">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span>Beranda</span>
+        </button>
+        <nav class="diary-nav">
+          <a href="#timerSection" class="nav-link active">Waktu</a>
+          <a href="#tentangDia" class="nav-link">Tentang Dia</a>
+          <a href="#diamDiam" class="nav-link">Diam-Diam</a>
+          <a href="#andaikan" class="nav-link">Andaikan</a>
+          <a href="#surat" class="nav-link">Surat</a>
+          <a href="#tentangWaktu" class="nav-link">Refleksi</a>
+          <a href="#catatanPribadi" class="nav-link">Arsip Kita</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Content Sections -->
+    <main class="diary-content">
+
+      <!-- Timer Section -->
+      <section id="timerSection" class="section timer-section">
+        <div class="container-narrow text-center">
+          <span class="section-tag">Perjalanan Waktu</span>
+          <h2 class="section-heading">Sejak waktu itu*</h2>
+          <div class="timer-display" id="timerDisplay">
+            <div class="time-block">
+              <span id="daysCount" class="time-value">0</span>
+              <span class="time-label">Hari</span>
+            </div>
+            <div class="time-separator">:</div>
+            <div class="time-block">
+              <span id="hoursCount" class="time-value">00</span>
+              <span class="time-label">Jam</span>
+            </div>
+            <div class="time-separator">:</div>
+            <div class="time-block">
+              <span id="minutesCount" class="time-value">00</span>
+              <span class="time-label">Menit</span>
+            </div>
+            <div class="time-separator">:</div>
+            <div class="time-block">
+              <span id="secondsCount" class="time-value">00</span>
+              <span class="time-label">Detik</span>
+            </div>
+          </div>
+          <p class="timer-note">*Ada cerita yang awalnya hanya diketahui oleh penulisnya.</p>
+        </div>
+      </section>
+
+      <!-- A. Tentang Dia -->
+      <section id="tentangDia" class="section diary-page">
+        <div class="container-narrow">
+          <div class="chapter-number">Bab I</div>
+          <h2 class="chapter-title">Tentang Dia</h2>
+          <div class="prose-content">
+            <p>
+              Erina Azalia Maghfiroh. Ada sesuatu dalam ketenangan cara bicaranya, dalam senyum yang kerap ia simpan di balik kesibukan harinya, yang selalu berhasil membuatku berhenti sejenak dari riuhnya dunia.
+            </p>
+            <p>
+              Kekaguman ini tumbuh bukan karena sebuah alasan yang megah atau dramatis. Ia hadir begitu saja melalui hal-hal kecil: cara ia menatap dunia dengan penuh perhatian, ketulusan dalam setiap langkahnya, dan keanggunan yang terpancar tanpa perlu dibuat-buat.
+            </p>
+            <p>
+              Sosoknya memiliki ruang tersendiri di dalam ingatan—sebuah tempat teduh di mana waktu seakan melambat, mengingatkanku bahwa di tengah ketidakpastian hidup, ada keindahan murni yang pernah ku saksikan dan ku kagumi dalam diam.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- B. Diam-Diam Ingin Tahu -->
+      <section id="diamDiam" class="section diary-page alt-bg">
+        <div class="container-narrow">
+          <div class="chapter-number">Bab II</div>
+          <h2 class="chapter-title">Diam-Diam Ingin Tahu</h2>
+          <div class="prose-content">
+            <p>
+              Terkadang, di sela-sela hari yang berjalan cepat, terbersit rasa penasaran yang lembut di dalam dada. Bagaimana harinya hari ini? Apakah ia lelah? Apakah ada hal kecil yang berhasil membuatnya tersenyum lepas?
+            </p>
+            <p>
+              Aku tidak pernah berniat untuk ikut campur atau mengusik dunianya. Rasa ingin tahu ini murni doa yang tak bersuara—sebuah pengharapan sederhana agar di mana pun ia berada, ia selalu dikelilingi oleh ketenangan, kesehatan, dan kebaikan semesta.
+            </p>
+            <p>
+              Biarlah rasa ini tetap menjadi rahasia kecil antara aku, hembusan angin, dan waktu yang terus berputar. Cukup dengan mengetahui bahwa ia ada di dunia ini dan bernapas di bawah langit yang sama, itu sudah lebih dari cukup.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- C. Andaikan Suatu Hari Nanti -->
+      <section id="andaikan" class="section diary-page">
+        <div class="container-narrow">
+          <div class="chapter-number">Bab III</div>
+          <h2 class="chapter-title">Andaikan Suatu Hari Nanti</h2>
+          <div class="prose-content">
+            <p>
+              Masa depan adalah sebuah misteri yang membentang luas. Namun, di dalam khayalan yang sunyi, aku sering kali membayangkan kemungkinan-kemungkinan indah yang tersimpan di balik tirai waktu.
+            </p>
+            <p>
+              Andaikan suatu hari nanti takdir mempertemukan kita kembali dalam situasi yang berbeda—di mana tidak ada lagi kecanggungan, di mana kita bisa duduk berdua, berbincang berjam-jam tentang hal-hal remeh hingga filosofi hidup yang rumit.
+            </p>
+            <p>
+              Saling mengenal lebih dalam, mendengar cerita-cerita baru yang belum sempat dibagikan, tumbuh bersama menjadi manusia yang lebih bijak, dan siapa tahu, berjalan berdampingan membangun kehidupan yang tenang.
+            </p>
+            <p class="italic-note">
+              Namun, semua itu hanyalah sebuah kemungkinan dan harapan. Apapun jalan yang dipilihkan waktu untuk kita nanti, aku bersyukur pernah diizinkan mengenalnya.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- D. Surat yang Belum Tersampaikan -->
+      <section id="surat" class="section diary-page alt-bg">
+        <div class="container-narrow">
+          <div class="chapter-number">Bab IV</div>
+          <h2 class="chapter-title">Surat yang Belum Tersampaikan</h2>
+          <div class="letter-container">
+            <div class="letter-header">Untuk Erina Azalia,</div>
+            
+            <div class="letter-subsection">
+              <h3>1. Hal yang belum sempat disampaikan</h3>
+              <p>
+                Ada banyak kalimat yang tertahan di ujung lidah setiap kali kita berada di ruangan yang sama. Rasa kagum yang terlalu besar terkadang membuat lidah kelu, memilih diam daripada menyuarakan isi hati yang gemetar.
+              </p>
+            </div>
+
+            <div class="letter-subsection">
+              <h3>2. Hal yang ingin aku ceritakan</h3>
+              <p>
+                Aku ingin menceritakan bagaimana hari-hariku kerap dipengaruhi oleh bayang-bayang senyummu. Bagaimana sebuah lagu atau aroma tertentu seketika membawaku kembali pada kenangan tentang dirimu.
+              </p>
+            </div>
+
+            <div class="letter-subsection">
+              <h3>3. Harapan yang masih tersimpan</h3>
+              <p>
+                Harapanku sederhana: semoga lelahmu terbayar oleh pencapaian yang indah, semoga hatimu senantiasa dilindungi dari rasa sepi, dan semoga kamu selalu tahu bahwa ada seseorang yang selalu mendoakanmu dari kejauhan.
+              </p>
+            </div>
+
+            <div class="letter-subsection">
+              <h3>4. Doa untuknya</h3>
+              <p>
+                Ya Tuhan, limpahkanlah selalu kebahagiaan, kemudahan, dan ketenangan di setiap langkah Erina Azalia Maghfiroh. Jagalah ia dalam setiap hembusan napasnya.
+              </p>
+            </div>
+
+            <div class="letter-footer">
+              <span>Dari seseorang yang merawat kenangan</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- E. Tentang Waktu -->
+      <section id="tentangWaktu" class="section diary-page">
+        <div class="container-narrow">
+          <div class="chapter-number">Bab V</div>
+          <h2 class="chapter-title">Tentang Waktu</h2>
+          <div class="prose-content">
+            <p>
+              Waktu adalah penyembuh sekaligus penjaga rahasia terbaik. Ia mengajarkan kita bagaimana perasaan dapat berubah bentuk—dari api yang menyala-nyala menjadi kehangatan yang tenang di dalam lubuk hati.
+            </p>
+            <p>
+              Menjaga jarak bukan berarti melupakan. Kadang kala, merelakan ruang adalah cara paling tulus untuk mencintai tanpa membebani. Belajar menjalani hari demi hari, merangkul kesunyian, dan menghargai setiap detik berharga tanpa harus menuntut kepastian.
+            </p>
+            <p>
+              Kenangan tentangmu bukan lagi beban, melainkan permata kecil yang memperkaya perjalanan hidupku.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- F. Arsip Perasaan / Tambah Tulisan (LocalStorage) -->
+      <section id="catatanPribadi" class="section diary-page alt-bg">
+        <div class="container-narrow">
+          <div class="chapter-number">Arsip Tambahan</div>
+          <h2 class="chapter-title">Catatan & Refleksi Hati</h2>
+          <p class="section-desc">Ruang pribadi untuk menuliskan catatan, kutipan, atau potongan ingatan terbaru tentang Erina. Tersimpan aman di peramban Anda.</p>
+          
+          <!-- Add/Edit Form -->
+          <div class="diary-form-card">
+            <h3 id="formTitle">Tulis Kenangan Baru</h3>
+            <form id="diaryForm">
+              <input type="hidden" id="entryIndex" value="-1">
+              <div class="form-field">
+                <label for="entryTitle">Judul Catatan</label>
+                <input type="text" id="entryTitle" required placeholder="Contoh: Senja di hari Selasa...">
+              </div>
+              <div class="form-field">
+                <label for="entryBody">Isi Tulisan</label>
+                <textarea id="entryBody" required rows="5" placeholder="Tuliskan perasaan atau momen berharga di sini..."></textarea>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary" id="saveEntryBtn">Simpan Catatan</button>
+                <button type="button" class="btn btn-secondary hidden" id="cancelEditBtn">Batal</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Entries List -->
+          <div class="entries-list" id="entriesList">
+            <!-- Dynamically populated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Bagian Penutup -->
+      <section class="section closing-section">
+        <div class="container-narrow text-center">
+          <div class="closing-quote-box">
+            <p class="closing-text">
+              "Entah bagaimana cerita ini akan berakhir. Aku tidak tahu apakah suatu hari nanti kita akan berjalan berdampingan, atau hanya menjadi dua orang yang pernah saling mengenal.<br><br>
+              Namun, aku berharap kamu selalu menemukan kebahagiaan dalam perjalananmu.<br><br>
+              Dan jika suatu hari nanti kita dipertemukan kembali, semoga kita telah tumbuh menjadi pribadi yang lebih baik."
+            </p>
+            <div class="closing-author">
+              <strong>Untuk Erina,</strong><br>
+              dari seseorang yang pernah menyimpan banyak cerita tentangmu.
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>&copy; 2026 Tentang Dia, dan Waktu. Dibuat dengan ketulusan & kenangan.</p>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,744 @@
+/* ==========================================
+   TENTANG DIA, DAN WAKTU — STYLESHEET
+   Aesthetic: Minimalist Romantic Diary, Warm Vintage, Soft Cinematic
+   ========================================== */
+
+:root {
+  --bg-color: #fdfbf7; /* Cream / Ivory */
+  --bg-alt: #f7f2ea; /* Warm beige */
+  --card-bg: #fffcf8;
+  --text-main: #3d3229; /* Dark brown */
+  --text-muted: #786a5e;
+  --accent: #b87d64; /* Muted rose / terracotta */
+  --accent-light: #e6ccb2;
+  --border-color: #e5dec9;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-script: 'Pinyon Script', cursive;
+  --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.8;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Paper texture overlay simulation */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(140, 122, 107, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Hidden Utility */
+.hidden {
+  display: none !important;
+}
+
+/* Utility Layouts */
+.container-narrow {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Audio Controller */
+.audio-controller {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+}
+
+.audio-controller button {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.6rem 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(61, 50, 41, 0.08);
+  transition: var(--transition);
+}
+
+.audio-controller button:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* ==========================================
+   OPENING SCREEN / COVER
+   ========================================== */
+.opening-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #fdfbf7 0%, #f4ede2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 2rem;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.opening-screen.fade-out {
+  opacity: 0;
+  transform: scale(1.03);
+  pointer-events: none;
+}
+
+/* Stars / Soft glow animation */
+.stars-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: twinkle var(--duration) infinite ease-in-out;
+  opacity: 0.3;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 0.8; transform: scale(1.2); }
+}
+
+.opening-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 3.5rem 2.5rem;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(61, 50, 41, 0.06);
+  position: relative;
+  animation: fadeInDown 1s ease forwards;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.vintage-stamp {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--accent-light);
+  padding-bottom: 0.25rem;
+}
+
+.opening-title {
+  font-family: var(--font-serif);
+  font-size: 2.75rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.opening-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.divider-line {
+  width: 50px;
+  height: 1px;
+  background: var(--accent);
+  margin: 0 auto 1.5rem;
+}
+
+.opening-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.btn-opening {
+  background: var(--text-main);
+  color: var(--bg-color);
+  border: none;
+  padding: 0.875rem 2.25rem;
+  border-radius: 50px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: var(--transition);
+  box-shadow: 0 8px 20px rgba(61, 50, 41, 0.15);
+}
+
+.btn-opening:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   MAIN APP & NAVIGATION
+   ========================================== */
+.main-app {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.main-app.visible {
+  opacity: 1;
+}
+
+.diary-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(253, 251, 247, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+}
+
+.nav-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-intro-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.back-intro-btn:hover {
+  color: var(--accent);
+}
+
+.diary-nav {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.diary-nav a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+}
+
+.diary-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: var(--transition);
+}
+
+.diary-nav a:hover,
+.diary-nav a.active {
+  color: var(--text-main);
+}
+
+.diary-nav a:hover::after,
+.diary-nav a.active::after {
+  width: 100%;
+}
+
+/* ==========================================
+   SECTIONS & TYPOGRAPHY
+   ========================================== */
+.section {
+  padding: 6rem 0 5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section.alt-bg {
+  background-color: var(--bg-alt);
+}
+
+/* Timer Section */
+.timer-section {
+  padding-top: 10rem;
+}
+
+.section-tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+}
+
+.timer-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.time-block {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem 1.25rem;
+  border-radius: 12px;
+  min-width: 90px;
+  box-shadow: 0 10px 30px rgba(61, 50, 41, 0.03);
+}
+
+.time-value {
+  font-family: var(--font-serif);
+  font-size: 2.75rem;
+  font-weight: 600;
+  display: block;
+  color: var(--text-main);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.time-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+
+.time-separator {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.timer-note {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* Diary Pages */
+.diary-page {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chapter-number {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.chapter-title {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.5px;
+}
+
+.propose-content, .prose-content {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  line-height: 2;
+  color: var(--text-main);
+}
+
+.prose-content p {
+  margin-bottom: 1.75rem;
+}
+
+.italic-note {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  margin-top: 2rem;
+  border-left: 2px solid var(--accent);
+  padding-left: 1.25rem;
+}
+
+/* Letter Section */
+.letter-container {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 3.5rem;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(61, 50, 41, 0.04);
+}
+
+.letter-header {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--accent);
+}
+
+.letter-subsection {
+  margin-bottom: 2rem;
+}
+
+.letter-subsection h3 {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+  color: var(--text-main);
+}
+
+.letter-subsection p {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  line-height: 1.9;
+  color: var(--text-muted);
+}
+
+.letter-footer {
+  margin-top: 3rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  text-align: right;
+  color: var(--text-main);
+  font-size: 1.15rem;
+}
+
+/* ==========================================
+   LOCALSTORAGE DIARY / FORM SECTION
+   ========================================== */
+.section-desc {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+}
+
+.diary-form-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 2.5rem;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(61, 50, 41, 0.03);
+}
+
+.diary-form-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-field {
+  margin-bottom: 1.5rem;
+}
+
+.form-field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--text-main);
+  transition: var(--transition);
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.75rem;
+  border-radius: 50px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background: var(--text-main);
+  color: var(--bg-color);
+}
+
+.btn-primary:hover {
+  background: var(--accent);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-main);
+  color: var(--text-main);
+}
+
+/* Entries List Cards */
+.entries-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.entry-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(61, 50, 41, 0.02);
+  transition: var(--transition);
+}
+
+.entry-card:hover {
+  border-color: var(--accent);
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.entry-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.entry-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.entry-body {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  white-space: pre-wrap;
+}
+
+.entry-footer-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-sm {
+  padding: 0.35rem 1rem;
+  font-size: 0.8rem;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.btn-sm:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-sm.btn-delete:hover {
+  border-color: #d90429;
+  color: #d90429;
+}
+
+/* ==========================================
+   CLOSING SECTION & FOOTER
+   ========================================== */
+.closing-section {
+  padding: 8rem 0;
+  background: var(--bg-alt);
+}
+
+.closing-quote-box {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 4rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(61, 50, 41, 0.04);
+}
+
+.closing-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 2.1;
+  color: var(--text-main);
+  margin-bottom: 2.5rem;
+}
+
+.closing-author {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--text-muted);
+}
+
+.closing-author strong {
+  color: var(--text-main);
+  font-size: 1.25rem;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--bg-color);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border-color);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 968px) {
+  .diary-nav {
+    display: none;
+  }
+  
+  .opening-title {
+    font-size: 2.25rem;
+  }
+  
+  .section-heading,
+  .chapter-title {
+    font-size: 2.25rem;
+  }
+  
+  .timer-display {
+    gap: 0.5rem;
+  }
+  
+  .time-block {
+    min-width: 70px;
+    padding: 1rem 0.5rem;
+  }
+  
+  .time-value {
+    font-size: 2rem;
+  }
+  
+  .letter-container,
+  .closing-quote-box,
+  .diary-form-card {
+    padding: 2rem 1.5rem;
+  }
+}

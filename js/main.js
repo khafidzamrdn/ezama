@@ -91,29 +91,42 @@ document.addEventListener('DOMContentLoaded', () => {
   updateTimer();
   setInterval(updateTimer, 1000);
 
-  // 4. Ambient Audio Toggle
+  // 4. Ambient Audio Toggle (Bergema Sampai Selamanya - Nadhif Basalamah)
   const audioToggleBtn = document.getElementById('audioToggleBtn');
   const bgAudio = document.getElementById('bgAudio');
   const audioLabel = document.getElementById('audioLabel');
+  const audioIcon = document.getElementById('audioIcon');
   let isPlaying = false;
+
+  if (bgAudio) {
+    bgAudio.volume = 0.5; // Comfortable initial volume
+  }
+
+  const playIconSVG = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
+  const pauseIconSVG = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>';
 
   if (audioToggleBtn && bgAudio) {
     audioToggleBtn.addEventListener('click', () => {
       if (isPlaying) {
         bgAudio.pause();
         isPlaying = false;
-        audioLabel.textContent = 'Musik';
-        audioToggleBtn.style.opacity = '0.8';
+        audioLabel.textContent = 'Putar';
+        if (audioIcon) audioIcon.innerHTML = playIconSVG;
       } else {
         bgAudio.play().then(() => {
           isPlaying = true;
-          audioLabel.textContent = 'Jeda Musik';
-          audioToggleBtn.style.opacity = '1';
+          audioLabel.textContent = 'Jeda';
+          if (audioIcon) audioIcon.innerHTML = pauseIconSVG;
         }).catch(err => {
-          console.log("Audio playback prevented:", err);
-          alert("Gagal memutar audio otomatis. Silakan coba lagi.");
+          console.warn("Audio playback error or not found:", err);
+          alert("File audio 'Bergema Sampai Selamanya' belum tersedia di folder assets/audio/ atau gagal dimuat.");
         });
       }
+    });
+
+    // Error handling for audio loading
+    bgAudio.addEventListener('error', (e) => {
+      console.warn("Audio error encountered:", e);
     });
   }
 
